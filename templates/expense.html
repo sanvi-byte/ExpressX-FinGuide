@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monthly Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💸 Monthly Expenses</h1>
+
+<form action="/expense" method="POST">
+
+<input type="number" name="food" placeholder="🍔 Food">
+
+<input type="number" name="clothing" placeholder="👕 Clothing">
+
+<input type="number" name="travel" placeholder="🚌 Travel">
+
+<input type="number" name="fees" placeholder="🎓 Fees">
+
+<input type="number" name="essentials" placeholder="🏠 Daily Essentials">
+
+<input type="number" name="medical" placeholder="💊 Medical">
+
+<input type="number" name="entertainment" placeholder="🎬 Entertainment">
+
+<input type="number" name="shopping" placeholder="🛍 Shopping">
+
+<input type="number" name="others" placeholder="📦 Others">
+
+<br><br>
+
+<button type="submit">Save & Analyze</button>
+
+</form>
+
+<br>
+
+<a href="/dashboard">
+    <button>Back to Dashboard</button>
+</a>
+
+</div>
+
+</body>
+</html>

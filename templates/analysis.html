@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Financial Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 Financial Analysis</h1>
+
+    <h2>Total Income</h2>
+    <h3 style="color:green;">₹ {{ total_income }}</h3>
+
+    <hr>
+
+    <h2>Total Expenses</h2>
+    <h3 style="color:red;">₹ {{ total_expense }}</h3>
+
+    <hr>
+
+    <h2>Balance</h2>
+
+    {% if balance >= 0 %}
+        <h2 style="color:green;">₹ {{ balance }}</h2>
+    {% else %}
+        <h2 style="color:red;">₹ {{ balance }}</h2>
+    {% endif %}
+
+    <hr>
+
+    <h2>Expense Breakdown</h2>
+
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <th>Category</th>
+            <th>Amount (₹)</th>
+        </tr>
+
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.category }}</td>
+            <td>₹ {{ expense.amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <hr>
+
+    <h2>🏆 Highest Expense Category</h2>
+
+    {% if highest_expense %}
+        <h3 style="color:red;">
+            {{ highest_expense.category }}
+        </h3>
+
+        <h2>
+            ₹ {{ highest_expense.amount }}
+        </h2>
+    {% else %}
+        <p>No expenses added yet.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>Savings Percentage</h2>
+
+    <h2 style="color:blue;">
+        {{ savings_percentage }}%
+    </h2>
+
+    <hr>
+
+    <h2>💡 Smart Suggestion</h2>
+
+    <p style="font-size:18px;">
+        {{ suggestion }}
+    </p>
+
+    <br>
+
+    <a href="/dashboard">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>

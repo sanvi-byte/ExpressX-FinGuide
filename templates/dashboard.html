@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard - ExpressX FinGuide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>👋 Welcome {{ name }}</h1>
+
+    <h2>ExpressX FinGuide</h2>
+
+    <p>Your Personal Financial Management System</p>
+
+    <hr>
+
+    <h3>Choose an Option</h3>
+
+    <br>
+
+    <a href="/income">
+        <button>💰 Add Monthly Income</button>
+    </a>
+
+    <br><br>
+
+    <a href="/expense">
+        <button>💸 Add Monthly Expenses</button>
+    </a>
+
+    <br><br>
+
+    <a href="/analysis">
+        <button>📊 Financial Analysis</button>
+    </a>
+
+    <br><br>
+
+    <!-- NEW CHATBOT BUTTON -->
+
+    <a href="/chatbot">
+        <button>🤖 FinGuide Assistant</button>
+    </a>
+
+    <br><br>
+
+    <button disabled>📄 Download Report (Coming Soon)</button>
+
+    <br><br>
+
+    <button disabled>🥧 Expense Pie Chart (Coming Soon)</button>
+
+    <br><br>
+
+    <button disabled>📈 Monthly Insights (Coming Soon)</button>
+
+    <br><br>
+
+    <a href="/">
+        <button>🚪 Logout</button>
+    </a>
+
+</div>
+
+</body>
+</html>

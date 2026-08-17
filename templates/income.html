@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Income</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💰 Add Income</h1>
+
+    <form method="POST">
+
+        <label>Select Income Source</label>
+
+        <br><br>
+
+        <select name="source" required>
+
+            <option value="">-- Select Income Source --</option>
+
+            <option value="Salary">💼 Salary</option>
+            <option value="Business">🏢 Business</option>
+            <option value="Freelancing">💻 Freelancing</option>
+            <option value="Investments">📈 Investments</option>
+            <option value="Interest">🏦 Bank Interest</option>
+            <option value="Scholarship">🎓 Scholarship</option>
+            <option value="Pocket Money">💵 Pocket Money</option>
+            <option value="Gift">🎁 Gift Received</option>
+            <option value="Rental Income">🏠 Rental Income</option>
+            <option value="Bonus">🎉 Bonus</option>
+            <option value="Other">📦 Other</option>
+
+        </select>
+
+        <br><br>
+
+        <label>💵 Enter Monthly Income</label>
+
+        <br><br>
+
+        <input
+            type="number"
+            name="amount"
+            placeholder="Enter Income Amount"
+            required>
+
+        <br><br>
+
+        <label>🎯 Monthly Savings Goal</label>
+
+        <br><br>
+
+        <input
+            type="number"
+            name="goal"
+            placeholder="Enter Monthly Savings Goal"
+            required>
+
+        <br><br>
+
+        <button type="submit">
+            Save Income & Continue
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">
+        <button>
+            Back to Dashboard
+        </button>
+    </a>
+
+</div>
+
+</body>
+
+</html>
+
+source = request.form.get("source")
+amount = float(request.form.get("amount") or 0)
+goal = float(request.form.get("goal") or 0)
+
+print("Received amount:", amount)
+print("Received goal:", goal)
+db.session.commit()
+saved = Income.query.first()
+print("Saved amount:", saved.amount)
+print("Saved goal:", saved.goal)
