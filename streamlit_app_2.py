@@ -211,4 +211,19 @@ elif st.session_state.page == "step_analysis":
     st.markdown("<br>", unsafe_allow_html=True)
     
     active_expenses = {k: v for k, v in st.session_state.expenses.items() if v > 0}
+        # Graphic Visual Allocation Render Engine Mapping via Altair
+    active_expenses = {k: v for k, v in st.session_state.expenses.items() if v > 0}
     if active_expenses:
+        st.subheader("🥧 Category Distribution Chart Matrix")
+        df_exp = pd.DataFrame(list(active_expenses.items()), columns=["Spending Track", "Amount Value"])
+        
+        chart = alt.Chart(df_exp).mark_bar(cornerRadiusTopRight=8, cornerRadiusBottomRight=8).encode(
+            x=alt.X('Amount Value:Q', title="Amount Stated (₹)"),
+            y=alt.Y('Spending Track:N', sort='-x', title="Cost Track Axis"),
+            color=alt.value('#1e293b')
+        ).properties(height=280)
+        
+        st.altair_chart(chart, use_container_width=True)
+    else:
+        st.warning("💡 Analytics Notice: No non-zero entry variables exist inside data logs to render allocation plot metrics.")
+
