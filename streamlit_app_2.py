@@ -227,7 +227,7 @@ elif st.session_state.page == "step_savings":
     st.markdown("<div class='auth-card-main'>", unsafe_allow_html=True)
     st.title("🎯 Savings Goal")
     st.write("<p>Set aside a portion for your future security</p>", unsafe_allow_html=True)
-        st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("<hr>", unsafe_allow_html=True)
     
     goal_input = st.number_input("Desired Target Amount (₹)", min_value=0.0, step=500.0, value=st.session_state.savings_goal or 5000.0)
     
